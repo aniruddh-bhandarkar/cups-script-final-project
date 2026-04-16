@@ -1,6 +1,6 @@
 ## What it does
 
-Two-stage detection tool for CVE-2025-58060, a critical (CVSS 9.8) authentication bypass vulnerability in the Common UNIX Printing System (CUPS). Rather than relying on version numbers alone, the tool combines a banner-based version check with an active auth bypass probe — confirming real vulnerability status even when the Server header truncates the patch version.
+Two-stage detection tool for CVE-2025-58060,  authentication bypass vulnerability in the Common UNIX Printing System (CUPS). Rather than relying on version numbers alone, the tool combines a banner-based version check with an active auth bypass probe. This helps confirming real vulnerability status even when the Server header truncates the patch version.
 
 **Stage 1 — Version check**
 Reads the `Server:` HTTP header from the CUPS web interface on port 631 and compares the detected version against the patched threshold `(2, 4, 13)`. If the banner only reports `CUPS/2.4` (truncated), the tool flags this and defers to Stage 2.
